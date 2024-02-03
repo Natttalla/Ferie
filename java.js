@@ -1,11 +1,12 @@
-let count = localStorage.getItem('count');
-        if(count === null) {
-            count = 0;
-        } else {
-            count = Number(count) + 1;
-        }
-        document.getElementById('counter').innerText = "Liczba odwiedzin: " + count;
-        localStorage.setItem('count', count);
+if(localStorage.getItem('visitCount')) {
+    let count = localStorage.getItem('visitCount');
+    count++;
+    localStorage.setItem('visitCount', count);
+    alert('Liczba odwiedzin: ' + count);
+} else {
+    localStorage.setItem('visitCount', 1);
+    alert('Witaj na mojej stronie!');
+}
 
         const createSnow = () => {
             const snowflake = document.createElement('i')
