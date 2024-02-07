@@ -1,16 +1,12 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Pobranie elementu, który będzie wyświetlał liczbę odwiedzin
-    var counterElement = document.getElementById('visitor_count');
-
-    // Wywołanie pliku PHP, aby uzyskać aktualną liczbę odwiedzin
-    fetch('counter.php')
-        .then(response => response.text())
-        .then(count => {
-            // Aktualizacja wartości na stronie
-            counterElement.textContent = count;
-        })
-        .catch(error => console.error('Błąd pobierania liczby odwiedzin:', error));
-});
+if(localStorage.getItem('visitCount')) {
+    let count = localStorage.getItem('visitCount');
+    count++;
+    localStorage.setItem('visitCount', count);
+    alert('Liczba odwiedzin: ' + count);
+} else {
+    localStorage.setItem('visitCount', 1);
+    alert('Witaj na mojej stronie!');
+}
 
         const createSnow = () => {
             const snowflake = document.createElement('i')
