@@ -1,16 +1,17 @@
 
-
 document.addEventListener('DOMContentLoaded', function() {
+    // Pobranie elementu, który będzie wyświetlał liczbę odwiedzin
     var counterElement = document.getElementById('visitor_count');
 
+    // Wywołanie pliku PHP, aby uzyskać aktualną liczbę odwiedzin
     fetch('counter.php')
         .then(response => response.text())
-        .then(counter => {
-            counterElement.textContent = counter;
+        .then(count => {
+            // Aktualizacja wartości na stronie
+            counterElement.textContent = count;
         })
         .catch(error => console.error('Błąd pobierania liczby odwiedzin:', error));
-
-        
+});
         const createSnow = () => {
             const snowflake = document.createElement('i')
             snowflake.classList.add('snowflake')
