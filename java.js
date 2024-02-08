@@ -1,13 +1,3 @@
-window.onload = function() {
-    if(window.localStorage){
-        var counter = localStorage.getItem('counter') ? parseInt(localStorage.getItem('counter')) : 0;
-        counter++;
-        localStorage.setItem('counter', counter);
-        document.getElementById('counter').innerText = 'Ta strona została odwiedzona ' + counter + ' razy.';
-    } else {
-        document.getElementById('counter').innerText = 'Twoja przeglądarka nie obsługuje LocalStorage, więc nie mogę zliczyć odwiedzin.';
-    }
-};
 
         const createSnow = () => {
             const snowflake = document.createElement('i')
