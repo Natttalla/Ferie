@@ -5,8 +5,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     fetch('counter.php')
         .then(response => response.text())
-        .then(count => {
-            counterElement.textContent = count;
+        .then(counter => {
+            counterElement.textContent = counter;
         })
         .catch(error => console.error('Błąd pobierania liczby odwiedzin:', error));
 
