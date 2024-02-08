@@ -1,15 +1,20 @@
 <?php
-$filename = 'counter.txt';
+    $counterFile = 'counter.txt';
 
-if (file_exists($filename)) {
-    $counter = file_get_contents($filename);
-} else {
-    $counter = 0;
-}
+    // Sprawdzenie, czy plik z licznikiem istnieje
+    if (file_exists($counterFile)) {
+        // Odczytanie obecnej wartości licznika
+        $count = (int)file_get_contents($counterFile);
+        // Inkrementacja licznika
+        $count++;
+    } else {
+        // Jeśli plik nie istnieje, ustaw licznik na 1
+        $count = 1;
+    }
 
-$counter++;
+    // Zapisanie nowej wartości licznika do pliku
+    file_put_contents($counterFile, $count);
 
-file_put_contents($filename, $counter);
-
-echo "Ta strona została odwiedzona $counter razy.";
+    // Zwrócenie liczby odwiedzin dla JavaScript
+    echo $count;
 ?>
